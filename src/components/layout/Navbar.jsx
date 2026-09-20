@@ -42,13 +42,18 @@ export default function Navbar() {
     setIsOpen(false)
   }, [location.pathname])
 
+  const isHomePage = location.pathname === '/'
+  const navbarScrolled = isScrolled > 20 || isOpen || !isHomePage
+
   const navbarClasses = `fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-    isScrolled || isOpen
+    navbarScrolled
       ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100'
       : 'bg-transparent'
   }`
 
-  const linkColor = isScrolled || isOpen ? 'text-carbon' : 'text-carbon'
+  const linkColor = navbarScrolled ? 'text-carbon' : 'text-cream'
+  const iconColor = navbarScrolled ? 'text-carbon' : 'text-cream'
+  const searchIconColor = navbarScrolled ? 'text-gray-400' : 'text-gray-300'
 
   return (
     <>
@@ -99,19 +104,21 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <div className="relative">
                 <Search
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+                  className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${searchIconColor}`}
                   onClick={() => setSearchOpen(true)}
                 />
                 <input
                   type="search"
                   placeholder="Buscar alimentos, marcas..."
-                  className={`w-[260px] pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:border-primary transition-colors text-sm ${
-                    isScrolled ? 'bg-gray-50' : 'bg-white/10'
+                  className={`w-[260px] pl-10 pr-4 py-2 rounded-full border focus:outline-none focus:border-primary transition-colors text-sm ${
+                    navbarScrolled
+                      ? 'bg-gray-50 border-gray-200 text-carbon'
+                      : 'bg-white/10 border-gray-500 text-cream placeholder-gray-400'
                   }`}
                   onFocus={() => setSearchOpen(true)}
                   onBlur={() => setTimeout(() => setSearchOpen(false), 200)}
                 />
-                {!searchOpen && !isScrolled && (
+                {!searchOpen && !navbarScrolled && (
                   <motion.div
                     layoutId="search-results"
                     className="absolute top-full mt-2 w-full min-h-[200px] bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
@@ -127,7 +134,7 @@ export default function Navbar() {
                 aria-label={`Carrito (${totalItems} productos)`}
                 className="relative p-2 rounded-full hover:bg-gray-50 transition-colors"
               >
-                <ShoppingCart className="w-5 h-5" />
+                <ShoppingCart className={`w-5 h-5 ${iconColor}`} />
                 {totalItems > 0 && (
                   <motion.span
                     initial={{ scale: 0 }}
@@ -143,7 +150,7 @@ export default function Navbar() {
                 href="/perros"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn btn-primary text-sm"
+                className={`btn text-sm ${navbarScrolled ? 'btn-primary' : 'btn-outline border-white text-cream hover:bg-white/10'}`}
               >
                 Comprar ahora
               </motion.a>
@@ -171,9 +178,9 @@ export default function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsCartOpen(true)}
                 aria-label={`Carrito (${totalItems} productos)`}
-                className="relative p-2 rounded-full hover:bg-gray-50 transition-colors"
+                className={`relative p-2 rounded-full transition-colors ${navbarScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/10'}`}
               >
-                <ShoppingCart className="w-5 h-5" />
+                <ShoppingCart className={`w-5 h-5 ${iconColor}`} />
                 {totalItems > 0 && (
                   <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full">
                     {totalItems}
@@ -186,9 +193,13 @@ export default function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-                className="p-2 rounded-full hover:bg-gray-50 transition-colors"
+                className={`p-2 rounded-full transition-colors ${navbarScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/10'}`}
               >
-                {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isOpen ? (
+                  <X className={`w-5 h-5 ${iconColor}`} />
+                ) : (
+                  <Menu className={`w-5 h-5 ${iconColor}`} />
+                )}
               </motion.button>
             </div>
           </div>
