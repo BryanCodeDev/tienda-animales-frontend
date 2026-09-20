@@ -1,0 +1,88 @@
+import {
+  IceCreamBowl,
+  Beef,
+  Leaf,
+  Bone,
+  PawPrint,
+  Dog,
+  UserRound,
+  Activity,
+} from 'lucide-react'
+import IMAGES from './images.js'
+
+const categories = [
+  {
+    id: 'dry-food',
+    name: 'Alimento seco',
+    slug: 'alimento-seco',
+    description: 'Croquetas premium con todos los nutrientes esenciales para tu mascota.',
+    image: IMAGES.categories.dryFood,
+    icon: IceCreamBowl,
+    href: '/alimentos?tipo=seco',
+  },
+  {
+    id: 'wet-food',
+    name: 'Alimento húmedo',
+    slug: 'alimento-humedo',
+    description: 'Comida húmeda de alta calidad para una dieta más natural y jugosa.',
+    image: IMAGES.categories.wetFood,
+    icon: Beef,
+    href: '/alimentos?tipo=humedo',
+  },
+  {
+    id: 'natural-food',
+    name: 'Alimentos naturales',
+    slug: 'alimentos-naturales',
+    description: 'Ingredientes 100% naturales sin aditivos artificiales ni conservantes.',
+    image: IMAGES.categories.natural,
+    icon: Leaf,
+    href: '/alimentos?tipo=natural',
+  },
+  {
+    id: 'snacks',
+    name: 'Snacks y premios',
+    slug: 'snacks-y-premios',
+    description: 'Premios saludables para entrenar y consentir a tu mejor amigo.',
+    image: IMAGES.categories.snacks,
+    icon: Bone,
+    href: '/alimentos?tipo=snacks',
+  },
+  {
+    id: 'puppy',
+    name: 'Cachorros',
+    slug: 'cachorros',
+    description: 'Alimentación especializada para las etapas de crecimiento y desarrollo.',
+    image: IMAGES.categories.puppy,
+    icon: PawPrint,
+    href: '/alimentos?etapa=cachorro',
+  },
+  {
+    id: 'adult',
+    name: 'Adultos',
+    slug: 'adultos',
+    description: 'Fórmulas equilibradas para mascotas activas y saludables.',
+    image: IMAGES.categories.adult,
+    icon: Dog,
+    href: '/alimentos?etapa=adulto',
+  },
+  {
+    id: 'senior',
+    name: 'Senior',
+    slug: 'senior',
+    description: 'Nutrición especial para las etapas avanzadas de la vida de tu mascota.',
+    image: IMAGES.categories.senior,
+    icon: UserRound,
+    href: '/alimentos?etapa=senior',
+  },
+  {
+    id: 'special-diets',
+    name: 'Dietas especiales',
+    slug: 'dietas-especiales',
+    description: 'Opciones para necesidades específicas como sensibilidad o salud particular.',
+    image: IMAGES.categories.special,
+    icon: Activity,
+    href: '/alimentos?tipo=especial',
+  },
+]
+
+export default categories

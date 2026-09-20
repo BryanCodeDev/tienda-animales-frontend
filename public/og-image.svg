@@ -1,0 +1,13 @@
+<section xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#FFFDF8"/>
+  <rect x="60" y="60" width="1080" height="510" rx="40" fill="#FFFFFF" stroke="#FF7A45" stroke-width="4"/>
+  <text x="600" y="220" text-anchor="middle" font-family="Poppins, ui-sans, system-ui, sans-serif" font-weight="700" font-size="64" fill="#171717">PetBloom</text>
+  <text x="600" y="300" text-anchor="middle" font-family="Inter, ui-sans, system-ui, sans-serif" font-weight="400" font-size="28" fill="#6B6B6B">Alimentación premium</text>
+  <text x="600" y="335" text-anchor="middle" font-family="Inter, ui-sans, system-ui, sans-serif" font-weight="400" font-size="28" fill="#6B6B6B">para perros y gatos</text>
+  <circle cx="420" cy="470" r="30" fill="#6FAF5F"/>
+  <circle cx="420" cy="470" r="18" fill="#FF7A45"/>
+  <circle cx="780" cy="470" r="28" fill="#F4B942"/>
+  <circle cx="780" cy="470" r="16" fill="#171717"/>
+  <path d="M390 490 Q405 500 420 490" stroke="#171717" stroke-width="2" fill="none"/>
+  <path d="M755 495 Q770 503 785 495" stroke="#171717" stroke-width="2" fill="none"/>
+</section>

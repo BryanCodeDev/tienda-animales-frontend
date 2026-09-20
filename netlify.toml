@@ -1,0 +1,16 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.processing.images]
+  compress = "auto"
+
+[template]
+  [template.environment]
+    VITE_API_URL = "https://api.petbloom.co"
+    VITE_SITE_URL = "https://petbloom.co"

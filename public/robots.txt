@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://petbloom.co/sitemap.xml
+
+# Crawl-delay for polite crawlers
+Crawl-delay: 10
+
+# Disallow admin/backend areas (for future expansion)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout/
+Disallow: /carrito/checkout/
+
+# Allow everything else
+Allow: /producto/
+Allow: /blog/
+Allow: /perros
+Allow: /gatos
+Allow: /alimentos
+Allow: /promociones
+Allow: /marcas
+Allow: /nosotros
+Allow: /contacto
