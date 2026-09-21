@@ -31,11 +31,12 @@ export default function Navbar() {
   const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+           const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20)
+          }
+          handleScroll()
+          window.addEventListener('scroll', handleScroll, { passive: true })
+          return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {
