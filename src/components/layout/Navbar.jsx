@@ -43,7 +43,7 @@ export default function Navbar() {
   }, [location.pathname])
 
   const isHomePage = location.pathname === '/'
-  const navbarScrolled = isScrolled > 20 || isOpen || !isHomePage
+  const navbarScrolled = isScrolled || isOpen || !isHomePage
 
   const navbarClasses = `fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
     navbarScrolled
@@ -146,14 +146,14 @@ export default function Navbar() {
                 )}
               </motion.button>
 
-              <motion.a
-                href="/perros"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`btn text-sm ${navbarScrolled ? 'btn-primary' : 'btn-outline border-white text-cream hover:bg-white/10'}`}
-              >
-                Comprar ahora
-              </motion.a>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/perros"
+                  className={`btn text-sm ${navbarScrolled ? 'btn-primary' : 'btn-outline border-white text-cream hover:bg-white/10'}`}
+                >
+                  Comprar ahora
+                </Link>
+              </motion.div>
             </div>
           </div>
 
