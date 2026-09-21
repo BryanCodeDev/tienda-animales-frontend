@@ -14,8 +14,8 @@ export default function Hero() {
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-carbon/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-carbon/50 via-carbon/25 to-transparent" />
+        <div className="absolute inset-0 bg-carbon/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-carbon/60 via-carbon/30 to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-16">
