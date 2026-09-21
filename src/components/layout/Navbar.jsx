@@ -31,12 +31,12 @@ export default function Navbar() {
   const location = useLocation()
 
   useEffect(() => {
-           const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20)
-          }
-          handleScroll()
-          window.addEventListener('scroll', handleScroll, { passive: true })
-          return () => window.removeEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {
@@ -44,17 +44,27 @@ export default function Navbar() {
   }, [location.pathname])
 
   const isHomePage = location.pathname === '/'
-  const navbarScrolled = isScrolled || isOpen || !isHomePage
+  const isScrolledOrOpen = isScrolled || isOpen
+
+  const isTransparent = isHomePage && !isScrolledOrOpen
+  const isDarkBg = isHomePage && isScrolledOrOpen
+  const isWhiteBg = !isHomePage
 
   const navbarClasses = `fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-    navbarScrolled
-      ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100'
-      : 'bg-transparent'
+    isTransparent
+      ? 'bg-transparent'
+      : isDarkBg
+      ? 'bg-carbon/90 backdrop-blur-xl shadow-sm border-b border-gray-800'
+      : 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100'
   }`
 
-  const linkColor = navbarScrolled ? 'text-carbon' : 'text-cream'
-  const iconColor = navbarScrolled ? 'text-carbon' : 'text-cream'
-  const searchIconColor = navbarScrolled ? 'text-gray-400' : 'text-gray-300'
+  const linkColor = isWhiteBg ? 'text-carbon' : 'text-cream'
+  const iconColor = isWhiteBg ? 'text-carbon' : 'text-cream'
+  const searchIconColor = isWhiteBg ? 'text-gray-400' : 'text-gray-300'
+  const searchInputClass = isWhiteBg
+    ? 'bg-gray-50 border-gray-200 text-carbon'
+    : 'bg-white/10 border-gray-500 text-cream placeholder-gray-400'
+  const buttonHoverBg = isWhiteBg ? 'hover:bg-gray-50' : 'hover:bg-white/10'
 
   return (
     <>
@@ -111,15 +121,11 @@ export default function Navbar() {
                 <input
                   type="search"
                   placeholder="Buscar alimentos, marcas..."
-                  className={`w-[260px] pl-10 pr-4 py-2 rounded-full border focus:outline-none focus:border-primary transition-colors text-sm ${
-                    navbarScrolled
-                      ? 'bg-gray-50 border-gray-200 text-carbon'
-                      : 'bg-white/10 border-gray-500 text-cream placeholder-gray-400'
-                  }`}
+                  className={`w-[260px] pl-10 pr-4 py-2 rounded-full border focus:outline-none focus:border-primary transition-colors text-sm ${searchInputClass}`}
                   onFocus={() => setSearchOpen(true)}
                   onBlur={() => setTimeout(() => setSearchOpen(false), 200)}
                 />
-                {!searchOpen && !navbarScrolled && (
+                {!searchOpen && isTransparent && (
                   <motion.div
                     layoutId="search-results"
                     className="absolute top-full mt-2 w-full min-h-[200px] bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
@@ -133,7 +139,7 @@ export default function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsCartOpen(true)}
                 aria-label={`Carrito (${totalItems} productos)`}
-                className="relative p-2 rounded-full hover:bg-gray-50 transition-colors"
+                className={`relative p-2 rounded-full ${buttonHoverBg} transition-colors`}
               >
                 <ShoppingCart className={`w-5 h-5 ${iconColor}`} />
                 {totalItems > 0 && (
@@ -150,7 +156,11 @@ export default function Navbar() {
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   to="/perros"
-                  className={`btn text-sm ${navbarScrolled ? 'btn-primary' : 'btn-outline border-white text-cream hover:bg-white/10'}`}
+                  className={`btn text-sm ${
+                    isWhiteBg
+                      ? 'btn-primary'
+                      : 'btn-outline border-white text-cream hover:bg-white/10'
+                  }`}
                 >
                   Comprar ahora
                 </Link>
@@ -179,7 +189,7 @@ export default function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsCartOpen(true)}
                 aria-label={`Carrito (${totalItems} productos)`}
-                className={`relative p-2 rounded-full transition-colors ${navbarScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/10'}`}
+                className={`relative p-2 rounded-full ${buttonHoverBg} transition-colors`}
               >
                 <ShoppingCart className={`w-5 h-5 ${iconColor}`} />
                 {totalItems > 0 && (
@@ -194,7 +204,7 @@ export default function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-                className={`p-2 rounded-full transition-colors ${navbarScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/10'}`}
+                className={`p-2 rounded-full ${buttonHoverBg} transition-colors`}
               >
                 {isOpen ? (
                   <X className={`w-5 h-5 ${iconColor}`} />
