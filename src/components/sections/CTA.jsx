@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronRight, MessageCircle } from 'lucide-react'
-import Button from '@ui/Button.jsx'
-import IMAGES from '@data/images.js'
-import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@constants/config.js'
+import Button from '@ui/Button'
+import IMAGES from '@data/images'
+import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@/constants/config'
 
 export default function CTA({
   headline = 'Ellos esperan mucho de ti.',

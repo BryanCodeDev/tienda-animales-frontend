@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronRight, Dog, Cat } from 'lucide-react'
-import Button from '@ui/Button.jsx'
-import IMAGES from '@data/images.js'
+import Button from '@ui/Button'
+import IMAGES from '@data/images'
+import { useState } from 'react'
 
 const petOptions = [
   {
     id: 'dog',
     name: 'Perro',
-    title: 'PARA MI PERRRO',
+    title: 'PARA MI PERRO',
     description: 'Alimentos, snacks y opciones para cada etapa.',
     href: '/perros',
-    image: IMAGES.hero.dogAndCat,
+    image: IMAGES.petSelector.dog,
     icon: Dog,
   },
   {
@@ -20,7 +21,7 @@ const petOptions = [
     title: 'PARA MI GATO',
     description: 'Nutrición pensada para sus necesidades.',
     href: '/gatos',
-    image: IMAGES.hero.dogAndCat,
+    image: IMAGES.petSelector.cat,
     icon: Cat,
   },
 ]
@@ -47,6 +48,7 @@ export default function PetSelector() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {petOptions.map((pet, index) => {
             const Icon = pet.icon
+            const [imageError, setImageError] = useState(false)
             return (
               <motion.div
                 key={pet.id}
@@ -61,11 +63,17 @@ export default function PetSelector() {
                     className="relative rounded-3xl overflow-hidden h-80 shadow-xl group-hover:shadow-2xl transition-shadow duration-500"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <img
-                      src={pet.image}
-                      alt={`Alimentos para ${pet.name.toLowerCase()}`}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    {!imageError && (
+                      <img
+                        src={pet.image}
+                        alt={`Alimentos para ${pet.name.toLowerCase()}`}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        onError={() => setImageError(true)}
+                      />
+                    )}
+                    {imageError && (
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-natural/20" />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/60 to-transparent" />
 
                     <div className="absolute inset-0 flex items-center justify-center">

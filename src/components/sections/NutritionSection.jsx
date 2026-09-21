@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronRight, Dog, Cat } from 'lucide-react'
-import IMAGES from '@data/images.js'
+import IMAGES from '@data/images'
 
 const dogStages = [
   {

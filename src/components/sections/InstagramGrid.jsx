@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Instagram, Heart } from 'lucide-react'
-import IMAGES from '@data/images.js'
+import IMAGES from '@data/images'
 
 const instagramPosts = [
   {

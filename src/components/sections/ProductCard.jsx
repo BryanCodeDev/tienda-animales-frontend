@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ShoppingCart } from 'lucide-react'
-import { calculateDiscount, formatPrice } from '@/utils/seo.js'
-import Rating from '@ui/Rating.jsx'
-import Badge from '@ui/Badge.jsx'
-import ProductBadge from '@ui/ProductBadge.jsx'
-import { useCart } from '@/hooks/useCart.jsx'
+import { calculateDiscount, formatPrice } from '@/utils/seo'
+import Rating from '@ui/Rating'
+import Badge from '@ui/Badge'
+import ProductBadge from '@ui/ProductBadge'
+import { useCart } from '@/hooks/useCart'
+import { useState } from 'react'
 
 export default function ProductCard({ product, index = 0, onAddToCart }) {
   const { addItem } = useCart()
+  const [imageError, setImageError] = useState(false)
 
   const handleAddToCart = (e) => {
     e.preventDefault()
@@ -32,12 +34,20 @@ export default function ProductCard({ product, index = 0, onAddToCart }) {
         >
           <div className="relative h-56 bg-gray-50 overflow-hidden">
             <ProductBadge type={product.badges?.[0]} />
-            <img
-              src={product.image}
-              alt={product.name}
-              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-              loading="lazy"
-            />
+            {!imageError && (
+              <img
+                src={product.image}
+                alt={product.name}
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                onError={() => setImageError(true)}
+              />
+            )}
+            {imageError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                <span className="text-gray-400 text-sm">Imagen no disponible</span>
+              </div>
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <motion.div
               className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"

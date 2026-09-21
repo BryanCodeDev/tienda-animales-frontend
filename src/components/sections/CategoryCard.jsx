@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import Button from '@ui/Button.jsx'
+import Button from '@ui/Button'
+import { useState } from 'react'
 
 export default function CategoryCard({ category, index = 0 }) {
+  const [imageError, setImageError] = useState(false)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -18,11 +21,19 @@ export default function CategoryCard({ category, index = 0 }) {
           whileHover={{ y: -5 }}
         >
           <div className="h-40 overflow-hidden rounded-t-3xl">
-            <img
-              src={category.image}
-              alt={category.name}
-              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-            />
+            {!imageError && (
+              <img
+                src={category.image}
+                alt={category.name}
+                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                onError={() => setImageError(true)}
+              />
+            )}
+            {imageError && (
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                <span className="text-gray-400 text-sm">Imagen no disponible</span>
+              </div>
+            )}
           </div>
           <div className="p-6">
             <h3 className="text-xl font-bold text-carbon mb-2">

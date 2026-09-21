@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
-import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@constants/config.js'
+import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@/constants/config'
 
 export default function WhatsAppButton({ productName = null }) {
   const handleClick = () => {

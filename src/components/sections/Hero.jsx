@@ -1,21 +1,32 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ShoppingBag, ChevronRight } from 'lucide-react'
-import Button from '@ui/Button.jsx'
-import IMAGES from '@data/images.js'
+import Button from '@ui/Button'
+import IMAGES from '@data/images'
+import { useState } from 'react'
 
 export default function Hero() {
+  const [imageError, setImageError] = useState(false)
+
   return (
     <section className="relative min-h-screen flex items-center bg-carbon text-cream overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={IMAGES.hero.dogAndCat}
-          alt="Perro y gato felices"
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-carbon/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-carbon/60 via-carbon/30 to-transparent" />
+        {!imageError && (
+          <>
+            <img
+              src={IMAGES.hero.dogAndCat}
+              alt="Perro y gato felices"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+              onError={() => setImageError(true)}
+            />
+            <div className="absolute inset-0 bg-carbon/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-carbon/60 via-carbon/30 to-transparent" />
+          </>
+        )}
+        {imageError && (
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-carbon to-natural/20" />
+        )}
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-16">

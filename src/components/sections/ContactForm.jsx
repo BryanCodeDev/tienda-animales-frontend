@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, User, Mail, Phone, MessageCircle, ChevronDown } from 'lucide-react'
-import Button from '@ui/Button.jsx'
-import { useToast } from '@components/layout/Toast.jsx'
+import Button from '@ui/Button'
+import { useToast } from '@components/layout/Toast'
 
 const petTypes = [
   { value: 'dog', label: 'Perro' },

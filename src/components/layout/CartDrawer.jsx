@@ -1,9 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ShoppingCart, Plus, Minus, Trash2, MessageCircle } from 'lucide-react'
-import { useCart } from '@/hooks/useCart.jsx'
-import { formatPrice } from '@/utils/seo.js'
-import Button from '@/components/ui/Button.jsx'
-import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@/constants/config.js'
+import { useCart } from '@/hooks/useCart'
+import { formatPrice } from '@/utils/seo'
+import Button from '@ui/Button'
+import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@/constants/config'
 
 export default function CartDrawer({ isOpen, onClose }) {
   const { items, removeItem, updateQuantity, clearCart, subtotal, totalItems } =

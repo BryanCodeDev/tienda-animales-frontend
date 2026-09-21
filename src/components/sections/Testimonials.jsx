@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Star } from 'lucide-react'
-import testimonials from '@data/testimonials.js'
+import testimonials from '@data/testimonials'
 
 export default function Testimonials() {
   const testimonialSlides = testimonials.slice(0, 5)

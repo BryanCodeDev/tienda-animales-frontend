@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin } from 'lucide-react'
-import { SOCIAL_LINKS, SITE_NAME } from '@/constants/config.js'
-import Button from '@ui/Button.jsx'
+import { SOCIAL_LINKS, SITE_NAME } from '@/constants/config'
+import Button from '@ui/Button'
 
 const footerColumns = [
   {
