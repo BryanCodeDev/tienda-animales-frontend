@@ -11,7 +11,7 @@ const promoSections = [
   {
     id: 'discounts',
     title: 'Descuentos especiales',
-    description: 'Hasta 16% de descuento en productos seleccionados. Ofertas demo - datos pendientes de aprobación.',
+    description: 'Hasta 16% de descuento en productos seleccionados.',
     icon: Tag,
     color: 'text-primary',
     bg: 'bg-primary/5',
@@ -41,7 +41,7 @@ export default function Promotions() {
   useSEO({
     title: 'Promociones y ofertas',
     description:
-      'Descubre nuestras promociones especiales, combos y ofertas en alimentos para perros y gatos. Ofertas demo - datos pendientes de aprobación.',
+      'Descubre nuestras promociones especiales, combos y ofertas en alimentos para perros y gatos.',
     canonical: '/promociones',
   })
 
@@ -54,7 +54,7 @@ export default function Promotions() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-display-xl md:text-display-2xl font-bold text-carbon mb-4">
+          <h1 className="text-display-md sm:text-display-xl md:text-display-2xl font-bold text-carbon mb-4">
             Promociones
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto">

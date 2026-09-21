@@ -57,7 +57,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={navbarClasses}>
+      <nav className={`relative ${navbarClasses} overflow-x-hidden`}>
         <div className="container mx-auto px-4">
           {/* Desktop */}
           <div className="hidden lg:flex items-center justify-between h-16">

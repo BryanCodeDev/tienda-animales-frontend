@@ -6,7 +6,7 @@ const promos = [
   {
     id: 'promo-1',
     title: 'Hasta 15% OFF',
-    description: 'Productos seleccionados. Oferta demo - datos pendientes de aprobación.',
+    description: 'Productos seleccionados. Oferta especial.',
     color: 'from-primary to-orange-400',
     href: '/promociones',
     label: 'Oferta Demo',
@@ -70,7 +70,7 @@ export default function PromoBanner() {
             >
               <Link to={promo.href} className="block group">
                 <motion.div
-                  className={`relative rounded-3xl overflow-hidden shadow-xl h-64 flex items-center justify-center text-center p-6 bg-gradient-to-br ${promo.color} group-hover:shadow-2xl transition-shadow duration-300`}
+                  className={`relative rounded-3xl overflow-hidden shadow-xl h-56 sm:h-64 flex items-center justify-center text-center p-6 bg-gradient-to-br ${promo.color} group-hover:shadow-2xl transition-shadow duration-300`}
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="relative z-10">

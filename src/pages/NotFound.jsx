@@ -12,7 +12,7 @@ export default function NotFound() {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="text-8xl md:text-9xl font-bold text-gray-200 mb-6"
+            className="text-5xl sm:text-6xl md:text-8xl font-bold text-gray-200 mb-6"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >

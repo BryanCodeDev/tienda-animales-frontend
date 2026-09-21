@@ -21,7 +21,7 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-display-xl md:text-display-2xl font-bold text-carbon mb-4">
+          <h1 className="text-display-md sm:text-display-xl md:text-display-2xl font-bold text-carbon mb-4">
             Contacto
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto">

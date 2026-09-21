@@ -79,7 +79,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://facebook.com"
+                href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -188,8 +188,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} PetBloom. Todos los derechos reservados. | 
-            Contenido demo: datos pendientes de aprobación del cliente.
+            © {new Date().getFullYear()} PetBloom. Todos los derechos reservados.
           </p>
         </div>
       </div>

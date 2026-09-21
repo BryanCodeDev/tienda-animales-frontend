@@ -354,7 +354,7 @@ export default function Product() {
 
         {/* Description */}
         <motion.div
-          className="mt-16 bg-white rounded-3xl p-8 shadow-sm"
+          className="mt-16 bg-white rounded-3xl p-4 sm:p-6 md:p-8 shadow-sm"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -14,14 +14,14 @@ export default function Hero() {
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-carbon/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/80 to-carbon/60" />
+        <div className="absolute inset-0 bg-carbon/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-carbon/50 via-carbon/25 to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-16">
         <div className="max-w-2xl">
           <motion.h1
-            className="text-display-2xl md:text-display-2xl font-bold text-cream leading-tight mb-6"
+            className="text-display-md sm:text-display-xl md:text-display-2xl font-bold text-cream leading-tight mb-6"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

@@ -60,9 +60,9 @@ export default function BrandMarquee() {
             {[...brands, ...brands].map((brand, index) => (
               <div
                 key={`${brand.name}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center h-16 px-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className="flex-shrink-0 flex items-center justify-center h-12 sm:h-16 px-4 sm:px-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               >
-                <span className="text-gray-700 font-bold text-lg whitespace-nowrap">
+                <span className="text-gray-700 font-bold text-sm sm:text-lg whitespace-nowrap">
                   {brand.name}
                 </span>
               </div>

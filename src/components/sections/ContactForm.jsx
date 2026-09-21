@@ -85,7 +85,7 @@ export default function ContactForm() {
               <Phone className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-bold text-carbon mb-2">WhatsApp</h3>
-            <p className="text-sm text-gray-500">+57 300 123 4567</p>
+            <p className="text-sm text-gray-500">+57 321 2209943</p>
           </motion.div>
 
           <motion.div
@@ -197,12 +197,12 @@ export default function ContactForm() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none text-sm transition-colors"
-                    placeholder="+57 300 123 4567"
+                    placeholder="+57 321 2209943"
                     aria-label="Teléfono"
                   />
                 </div>
 
-                <div>
+                <div className="relative">
                   <label className="block text-sm font-medium text-carbon mb-2">
                     Tipo de mascota
                   </label>
@@ -210,7 +210,7 @@ export default function ContactForm() {
                     name="petType"
                     value={formData.petType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none text-sm appearance-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none text-sm appearance-none pr-10"
                     aria-label="Tipo de mascota"
                   >
                     {petTypes.map((type) => (
@@ -219,6 +219,7 @@ export default function ContactForm() {
                       </option>
                     ))}
                   </select>
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                 </div>
               </div>
 
